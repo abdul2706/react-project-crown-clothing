@@ -2,7 +2,13 @@ import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import "./checkout.styles.scss";
+// import "./checkout.styles.scss";
+import {
+    CheckoutPageContainer,
+    CheckoutHeaderContainer,
+    HeaderBlockContainer,
+    TotalContainer,
+} from "./checkout.styles";
 
 import {
     selectCartItems,
@@ -12,31 +18,31 @@ import CheckoutItem from "../../components/checkout-item/checkout-item.component
 
 const CheckoutPage = ({ cartItems, total }) => {
     return (
-        <div className="checkout-page">
-            <div className="checkout-header">
-                <div className="header-block">
+        <CheckoutPageContainer>
+            <CheckoutHeaderContainer>
+                <HeaderBlockContainer>
                     <span>Product</span>
-                </div>
-                <div className="header-block">
+                </HeaderBlockContainer>
+                <HeaderBlockContainer>
                     <span>Description</span>
-                </div>
-                <div className="header-block">
+                </HeaderBlockContainer>
+                <HeaderBlockContainer>
                     <span>Quantity</span>
-                </div>
-                <div className="header-block">
+                </HeaderBlockContainer>
+                <HeaderBlockContainer>
                     <span>Price</span>
-                </div>
-                <div className="header-block">
+                </HeaderBlockContainer>
+                <HeaderBlockContainer>
                     <span>Remove</span>
-                </div>
-            </div>
+                </HeaderBlockContainer>
+            </CheckoutHeaderContainer>
             {cartItems.map((cartItem) => (
                 <CheckoutItem key={cartItem.id} cartItem={cartItem} />
             ))}
-            <div className="total">
+            <TotalContainer>
                 <span>TOTAL: ${total}</span>
-            </div>
-        </div>
+            </TotalContainer>
+        </CheckoutPageContainer>
     );
 };
 
